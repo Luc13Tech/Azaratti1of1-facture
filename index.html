@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Azaratti1of1 - Générateur de Factures</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- html2pdf -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <div class="container">
+        <!-- ===== EN-TÊTE ===== -->
+        <header>
+            <div class="logo-container">
+                <img src="logo/logo-azaratti.png" alt="Azaratti1of1" class="company-logo" />
+            </div>
+            <h1>📄 Générateur de Factures</h1>
+            <p class="subtitle">Azaratti1of1 · Confection & Vente de Vestes</p>
+        </header>
+
+        <!-- ===== FORMULAIRE ===== -->
+        <section class="form-section" id="formSection">
+            <div class="card">
+                <h2><i class="fas fa-user"></i> Informations Client</h2>
+                <div class="form-group">
+                    <label for="clientName">Nom du client *</label>
+                    <input type="text" id="clientName" placeholder="Ex: Jean Dupont" required />
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><i class="fas fa-tshirt"></i> Articles</h2>
+                <div id="articlesContainer">
+                    <!-- Article 1 (par défaut) -->
+                    <div class="article-item">
+                        <div class="article-row">
+                            <div class="form-group">
+                                <label>Nom de l'article</label>
+                                <input type="text" class="article-name" placeholder="Ex: Veste en cuir" />
+                            </div>
+                            <div class="form-group">
+                                <label>Quantité</label>
+                                <input type="number" class="article-qty" value="1" min="1" />
+                            </div>
+                            <div class="form-group">
+                                <label>Prix unitaire (FCFA)</label>
+                                <input type="number" class="article-price" value="0" min="0" step="100" />
+                            </div>
+                            <div class="form-group">
+                                <label>Couleur</label>
+                                <input type="text" class="article-color" placeholder="Ex: Noir" />
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <input type="text" class="article-desc" placeholder="Taille, matière..." />
+                            </div>
+                            <button type="button" class="btn-remove-article" title="Supprimer">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" id="addArticleBtn" class="btn-add">
+                    <i class="fas fa-plus-circle"></i> Ajouter un article
+                </button>
+            </div>
+
+            <div class="card" style="text-align: center;">
+                <button type="button" id="generateBtn" class="btn-generate">
+                    <i class="fas fa-file-invoice"></i> Générer la facture
+                </button>
+            </div>
+        </section>
+
+        <!-- ===== APERÇU DE LA FACTURE ===== -->
+        <section class="preview-section" id="previewSection" style="display: none;">
+            <div class="preview-actions">
+                <button type="button" id="editBtn" class="btn-edit">
+                    <i class="fas fa-pen"></i> Modifier
+                </button>
+                <button type="button" id="downloadBtn" class="btn-download">
+                    <i class="fas fa-file-pdf"></i> Télécharger PDF
+                </button>
+            </div>
+
+            <div id="invoiceContainer">
+                <!-- La facture sera injectée ici par JavaScript -->
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+  </html>
