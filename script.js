@@ -234,6 +234,9 @@ editBtn.addEventListener('click', () => {
 // ===== BOUTON TÉLÉCHARGER PDF =====
 downloadBtn.addEventListener('click', () => {
     const invoiceElement = document.getElementById('invoiceContainer');
+    const clientName = document.getElementById('clientName').value.trim() || 'client';
+    const safeClientName = clientName.replace(/\s+/g, '_'); // Remplacer espaces par _
+    const today = new Date().toISOString().slice(0,10);
 
     // Afficher un indicateur de chargement
     downloadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Génération...';
@@ -242,7 +245,7 @@ downloadBtn.addEventListener('click', () => {
     // Options de génération PDF
     const opt = {
         margin:        [10, 10, 10, 10],
-        filename:      `facture-Azaratti1of1-${new Date().toISOString().slice(0,10)}.pdf`,
+        filename:      `facture-Azaratti1of1-${safeClientName}-${today}.pdf`,
         image:         { type: 'jpeg', quality: 0.98 },
         html2canvas:   { scale: 2, useCORS: true, letterRendering: true },
         jsPDF:         { unit: 'mm', format: 'a4', orientation: 'portrait' }
