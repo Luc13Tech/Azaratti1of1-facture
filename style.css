@@ -31,7 +31,7 @@ header {
 }
 
 .company-logo {
-    max-height: 80px;
+    max-height: 120px;  /* Taille augmentée de 80px à 120px */
     width: auto;
     filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.3));
 }
@@ -249,7 +249,7 @@ header .subtitle {
 }
 
 .invoice-logo {
-    max-height: 60px;
+    max-height: 100px;  /* Taille augmentée de 60px à 100px */
     width: auto;
 }
 
@@ -440,6 +440,14 @@ header .subtitle {
         width: 100%;
         justify-content: center;
     }
+
+    .company-logo {
+        max-height: 80px;  /* Taille réduite sur mobile pour ne pas surcharger */
+    }
+
+    .invoice-logo {
+        max-height: 70px;  /* Taille réduite sur mobile */
+    }
 }
 
 /* ===== SCROLLBAR ===== */
@@ -455,4 +463,4 @@ header .subtitle {
 }
 ::-webkit-scrollbar-thumb:hover {
     background: #b8962e;
-}
+    }
