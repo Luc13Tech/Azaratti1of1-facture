@@ -117,10 +117,9 @@ generateBtn.addEventListener('click', () => {
 
     if (hasError || articles.length === 0) return;
 
-    // 3. Calculer les totaux
+    // 3. Calculer les totaux (SANS TVA)
     const totalHT = articles.reduce((sum, art) => sum + art.qty * art.price, 0);
-    const tva = totalHT * 0.18; // TVA 18%
-    const totalTTC = totalHT + tva;
+    const totalTTC = totalHT; // Pas de TVA
 
     // 4. Générer le numéro de facture
     const now = new Date();
@@ -188,15 +187,11 @@ generateBtn.addEventListener('click', () => {
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="5" style="text-align:right; font-weight:600;">Sous-total HT</td>
+                    <td colspan="5" style="text-align:right; font-weight:600;">Sous-total</td>
                     <td>${totalHT.toLocaleString()} FCFA</td>
                 </tr>
-                <tr>
-                    <td colspan="5" style="text-align:right; font-weight:600;">TVA (18%)</td>
-                    <td>${tva.toLocaleString()} FCFA</td>
-                </tr>
                 <tr class="total-row">
-                    <td colspan="5" class="total-label">TOTAL TTC</td>
+                    <td colspan="5" class="total-label">TOTAL</td>
                     <td class="total-amount">${totalTTC.toLocaleString()} FCFA</td>
                 </tr>
             </tfoot>
@@ -235,7 +230,7 @@ editBtn.addEventListener('click', () => {
 downloadBtn.addEventListener('click', () => {
     const invoiceElement = document.getElementById('invoiceContainer');
     const clientName = document.getElementById('clientName').value.trim() || 'client';
-    const safeClientName = clientName.replace(/\s+/g, '_'); // Remplacer espaces par _
+    const safeClientName = clientName.replace(/\s+/g, '_');
     const today = new Date().toISOString().slice(0,10);
 
     // Afficher un indicateur de chargement
