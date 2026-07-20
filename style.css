@@ -28,12 +28,22 @@ header {
 
 .logo-container {
     margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
 }
 
 .company-logo {
-    max-height: 120px;  /* Taille augmentée de 80px à 120px */
+    max-height: 120px;
     width: auto;
     filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.3));
+}
+
+.company-stamp {
+    max-height: 80px;
+    width: auto;
+    filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.2));
 }
 
 header h1 {
@@ -249,8 +259,15 @@ header .subtitle {
 }
 
 .invoice-logo {
-    max-height: 100px;  /* Taille augmentée de 60px à 100px */
+    max-height: 100px;
     width: auto;
+}
+
+.invoice-stamp {
+    max-height: 70px;
+    width: auto;
+    border-radius: 8px;
+    opacity: 0.9;
 }
 
 .invoice-company-info {
@@ -442,11 +459,23 @@ header .subtitle {
     }
 
     .company-logo {
-        max-height: 80px;  /* Taille réduite sur mobile pour ne pas surcharger */
+        max-height: 80px;
+    }
+
+    .company-stamp {
+        max-height: 50px;
     }
 
     .invoice-logo {
-        max-height: 70px;  /* Taille réduite sur mobile */
+        max-height: 70px;
+    }
+
+    .invoice-stamp {
+        max-height: 45px;
+    }
+
+    .logo-container {
+        gap: 10px;
     }
 }
 
