@@ -129,8 +129,9 @@ generateBtn.addEventListener('click', () => {
     // 5. Construire le HTML de la facture
     let html = `
         <div class="invoice-header">
-            <div>
+            <div style="display: flex; align-items: center; gap: 20px;">
                 <img src="logo/logo-azaratti.png" alt="Azaratti1of1" class="invoice-logo" />
+                <img src="images/cachet-azaratti.webp" alt="Cachet Azaratti1of1" class="invoice-stamp" />
             </div>
             <div class="invoice-company-info">
                 <h2>Azaratti1of1</h2>
